@@ -9,16 +9,15 @@ import com.squareup.picasso.Picasso;
 
 public class ImageActivity extends AppCompatActivity {
 
-    private Context context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
 
-        String url = "http://tp3.sinaimg.cn/1649383490/180/5706347282/1";
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
 
-        Picasso.with(context).load(url).into(imageView);
+        Picasso.with(imageView.getContext())
+            .load("http://cdn.duitang.com/uploads/item/201603/06/20160306115628_dfwuc.jpeg")
+            .into(imageView);
     }
 }

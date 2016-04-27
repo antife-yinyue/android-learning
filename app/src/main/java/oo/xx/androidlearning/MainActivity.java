@@ -13,15 +13,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn = (Button) findViewById(R.id.button);
-        btn.setOnClickListener(this);
+        Button btn1 = (Button) findViewById(R.id.button1);
+        btn1.setOnClickListener(this);
+
+        Button btn2 = (Button) findViewById(R.id.button2);
+        btn2.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         System.out.println("Button Clicked");
 
-        Intent intent = new Intent(this, ImageActivity.class);
+        Intent intent;
+
+        switch (view.getId()) {
+            case R.id.button1:
+                intent = new Intent(this, ImageActivity.class);
+                break;
+
+            case R.id.button2:
+                intent = new Intent(this, WebviewActivity.class);
+                break;
+
+            default:
+                intent = new Intent(this, MainActivity.class);
+                break;
+        }
+
         startActivity(intent);
     }
 }

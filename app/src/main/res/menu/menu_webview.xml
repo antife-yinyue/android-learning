@@ -7,4 +7,9 @@
         android:id="@+id/action_reload"
         android:title="@string/action_reload"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_change_face"
+        android:title="@string/action_change_face"
+        app:showAsAction="never" />
 </menu>

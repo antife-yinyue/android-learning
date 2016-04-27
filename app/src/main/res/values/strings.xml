@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Android Learning</string>
     <string name="action_reload">刷新</string>
+    <string name="action_change_face">换脸</string>
 </resources>

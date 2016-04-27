@@ -17,11 +17,15 @@ public class WebviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
 
-        setupActionBar();
+        // 设置返回按钮
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
+        // 创建 WebView
         webView = (WebView) findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("http://baidu.com/");
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("https://m.baidu.com/");
     }
 
     @Override
@@ -42,14 +46,13 @@ public class WebviewActivity extends AppCompatActivity {
                 webView.reload();
                 return true;
 
+            case R.id.action_change_face:
+                // chrome://inspect/#devices
+                webView.loadUrl("javascript:document.getElementById('index-bn').innerText = 'Google';void(0)");
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-
-    private void setupActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 }
